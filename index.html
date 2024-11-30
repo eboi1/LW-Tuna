@@ -1,0 +1,297 @@
+<head>
+    <title>Team Tuna - Rust</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #34495e;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        td {
+            background-color: #ecf0f1;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .intro {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .link-list {
+            padding: 0;
+            list-style-type: none;
+            margin: 10px 0;
+        }
+
+        .link-list li {
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Team Tuna - Rust</h1>
+        
+        <h2>Description and History</h2>
+        <p>Rust is a general-purpose programming language that focuses on maximizing program performance with strong type safety and concurrency features. Rust enforces memory safety like many other modern PL's, but does so without a "garbage collector", instead opting to use a "borrow checker" that tracks the lifetime of the memory object during compile time. Rust also features strong package managers, is safe and reliable, and has a modern, clean syntax that is easy to read and understand.</p>
+        <p>Rust was influenced by ideas from functional programming, meaning that it supports object immutability, higher-order functions, and pattern matching. Rust also supports multiple object-oriented principles through structs, enums, and more. Rust is very popular for systems programming, like building computer system software and software platforms that provide services to other software, most commonly application software.</p>
+        <p>Rust was developed by Graydon Hoare, a Mozilla employee, in 2006 as a personal project. In 2009, Mozilla officially sponsored Graydon's project and eventually released the first stable version of Rust in 2015.</p>
+        <p>Rust is currently being rapidly adopted by a multitude of companies due to its strong performance and capabilities.</p>
+
+        <h2>Links</h2>
+        <ul class="link-list">
+            <li><a href="https://doc.rust-lang.org/reference/">Rust Specification</a></li>
+            <li><a href="https://doc.rust-lang.org/beta/">Rust Documentation</a></li>
+            <li><a href="https://www.rust-lang.org/learn">Rust Tutorials</a></li>
+        </ul>
+
+        <div class="intro">
+            <h2>Translators & Instructions</h2>
+            <p>insert</p>
+
+            <h2>Introductory Programs</h2>
+            <br></br>
+
+            <h3>Hello World Function Call</h3>
+            <pre>
+                <p>
+                    fn main() {
+                        print_hello_world();
+                    }
+                    
+                    fn print_hello_world() {
+                        println!("Hello, World!");
+                    }
+                </p>  
+            </pre>
+
+            <h3>Iterate through a 2 dimensional array</h3>
+            <pre>
+                <P>
+                    fn main() {
+                        // Define a 2D array 
+                        let array = [
+                            [1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9],
+                        ];
+                    
+                        // Iterate through the rows
+                        for row in array.iter() {
+                            // Iterate through the elements of each row
+                            for &value in row.iter() {
+                                print!("{} ", value);
+                            }
+                            // Print a new line after each row
+                            println!();
+                        }
+                    }
+                </P>
+            </pre>
+            
+            <h3>Fibonacci Sequence</h3>
+            <pre>
+                <P>
+                fn main() {
+                    let n = 10; // The number of Fibonacci numbers to display
+                    println!("First {} Fibonacci numbers:", n);
+                    
+                    // Call the function to print Fibonacci numbers
+                    for i in 0..n {
+                        let fib = fibonacci(i);
+                        println!("Fib({}) = {}", i, fib);
+                    }
+                }
+                
+                // Function to calculate the nth Fibonacci number
+                fn fibonacci(n: u32) -> u32 {
+                    if n == 0 {
+                        return 0;
+                    } else if n == 1 {
+                        return 1;
+                    } else {
+                        return fibonacci(n - 1) + fibonacci(n - 2);
+                    }
+                }  
+                </P>
+            </pre>
+
+            <h5>Output:</h5>
+            <pre>
+                    First 10 Fibonacci numbers:
+                    Fib(0) = 0
+                    Fib(1) = 1
+                    Fib(2) = 1
+                    Fib(3) = 2
+                    Fib(4) = 3
+                    Fib(5) = 5
+                    Fib(6) = 8
+                    Fib(7) = 13
+                    Fib(8) = 21
+                    Fib(9) = 34
+            </pre>            
+
+            <h2>Complex Program</h2>
+            <p>insert</p>
+
+            <h2>Comparison To Similar Languages</h2>
+            <table>
+                <tr>
+                    <th>Feature/Characteristic</th>
+                    <th>Rust</th>
+                    <th>Python</th>
+                    <th>Javascript</th>
+                    <th>C++</th>
+                </tr>
+                <tr>
+                    <td>Paradigms</td>
+                    <td>Systems, Functional, Procedural</td>
+                    <td>Object-Oriented, Functional, Procedural</td>
+                    <td>Event-driven, Functional, Imperative</td>
+                    <td>Object-Oriented, Procedural, Generic</td>
+                </tr>
+                <tr>
+                    <td>Use Cases</td>
+                    <td>Systems Programming, Performance Critical Software</td>
+                    <td>Scripting, Data Science, Web Development</td>
+                    <td>Server-side Scripting, Web Development</td>
+                    <td>Game Development, Performance Critical Applications</td>
+                </tr>
+                <tr>
+                    <td>Memory Management</td>
+                    <td>Ownership, No Garbage Collection</td>
+                    <td>Garbage Collection</td>
+                    <td>Garbage Collection</td>
+                    <td>Manual Management</td>
+                </tr>
+                <tr>
+                    <td>Type System</td>
+                    <td>Statically Typed</td>
+                    <td>Dynamically Typed</td>
+                    <td>Dynamically Typed</td>
+                    <td>Statically Typed</td>
+                </tr>
+                <tr>
+                    <td>Concurrency</td>
+                    <td>Ownership Model, Send/Sync Traits, Compile-Time Checks</td>
+                    <td>Limited due to Global Interpreter Lock</td>
+                    <td>Async/Await Model w/ Event Loop</td>
+                    <td>Threads, Async w/ Libraries</td>
+                </tr>
+                <tr>
+                    <td>Syntax Complexity</td>
+                    <td>Somewhat Complex/Strict</td>
+                    <td>Simple</td>
+                    <td>Simple</td>
+                    <td>High Complexity, Very Verbose</td>
+                </tr>
+                <tr>
+                    <td>Compiled or Interpreted</td>
+                    <td>Compiled</td>
+                    <td>Interpreted</td>
+                    <td>Interpreted</td>
+                    <td>Compiled</td>
+                </tr>
+                <tr>
+                    <td>Performance</td>
+                    <td>High</td>
+                    <td>Moderate</td>
+                    <td>Moderate</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Learning Curve</td>
+                    <td>Steep for Beginners, Easier for Professionals</td>
+                    <td>Easy to learn</td>
+                    <td>Easy to learn</td>
+                    <td>Steep for Beginners, Easier for Professionals</td>
+                </tr>
+                <tr>
+                    <td>Platform Independence</td>
+                    <td>Cross-platform, Compiled to Machine Code</td>
+                    <td>Platform-independent using Python Runtime</td>
+                    <td>Platform-independent as it runs on Browsers</td>
+                    <td>Cross-platform, can change depending on compiler setup</td>
+                </tr>
+                <tr>
+                    <td>Unique Strengths</td>
+                    <td>Very Safe, High Performance</td>
+                    <td>High Readability, Huge Library Ecosystem</td>
+                    <td>Browser Integration, Highly Dynamic</td>
+                    <td>Strong Performance, Great for Complex Systems</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Team Tuna. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
