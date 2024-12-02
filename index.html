@@ -100,7 +100,15 @@
         <h1>Team Tuna - Rust</h1>
         
         <h2>Description</h2>
-        <p>Rust is a modern, high-performance, systems programming language that focuses on maximizing program performance with strong type safety and concurrency features. Rust enforces memory safety like many other modern PL's, but does so without a "garbage collector", instead opting to use a "borrow checker" that tracks the lifetime of the memory object during compile time, along with an "ownership model". Rust also features strong package managers, is safe and reliable, and has a modern, clean syntax that is easy to read and understand.</p>
+        <p>Rust is a modern, high-performance, systems programming language that focuses on maximizing program performance with strong type safety and concurrency features. Rust enforces memory safety like many other modern PL's, but does so without a "garbage collector", instead opting to use a "borrow checker" and an ownership model that tracks the lifetime of the memory object during compile time, making sure there are no null pointer dereferences, use-after-free bugs, and data races. For example, below is an example of the ownership model:</p>
+        <img src="rustownership.PNG">
+        <p>The output (notice how awesome the Rust debugger is): </p>
+        <img src="rustownershipoutput.PNG">
+        <p>Rust also does not have null values or pointers, instead featuring an "Option" module with "Some" value or "None":</p>
+        <img src="rustoption.PNG">
+        <p>Rust also features strong package managers, is safe and reliable, and has a modern, clean syntax that is easy to read and understand. Rust's syntax takes inspiration from multiple languages like C, Java, and Python.</p>
+        <p>Rust handles errors with with a "Result" module that transforms functions to return an enum containing either Ok(x), resembling a good value, or Err(x), resembling an error:</p>
+        <img src="rusterrorhandle.PNG">
         <p>Rust was influenced by ideas from functional programming, meaning that it supports object immutability, higher-order functions, and pattern matching. Rust also supports multiple object-oriented principles through structs, enums, and more. Rust is very popular for systems programming, like building computer system software and software platforms that provide services to other software, most commonly application software.</p>
         <h2>History</h2>
         <p>Rust was developed by Graydon Hoare, a Mozilla employee, in 2006 as a personal project. In 2009, Mozilla officially sponsored Graydon's project and eventually released the first stable version of Rust in 2015.</p>
@@ -121,9 +129,9 @@
             <br></br>
 
             <h3>Hello World Function Call</h3>
-            <img src="rusthelloworld.PNG"></a>
+            <img src="rusthelloworld.PNG">
             <br></br>
-            <img src="rusthelloworldoutput.PNG"></a>
+            <img src="rusthelloworldoutput.PNG">
             <pre>
                 <p>
                     fn main() {
@@ -137,9 +145,9 @@
             </pre>
 
             <h3>Iterate through a 2 dimensional array</h3>
-            <img src="rust2darray.PNG"></a>
+            <img src="rust2darray.PNG">
             <br></br>
-            <img src="rust2darrayoutput.PNG"></a>
+            <img src="rust2darrayoutput.PNG">
             <pre>
                 <P>
                     fn main() {
@@ -164,9 +172,9 @@
             </pre>
             
             <h3>Fibonacci Sequence</h3>
-            <img src="rustfibonacci.PNG"></a>
+            <img src="rustfibonacci.PNG">
             <br></br>
-            <img src="rustfibonaccioutput.PNG"></a>
+            <img src="rustfibonaccioutput.PNG">
             <pre>
                 <P>
                 fn main() {
@@ -209,9 +217,9 @@
             </pre>
             
             <h3>Threads in Rust</h3>
-            <img src="rustthreads.PNG"></a>
+            <img src="rustthreads.PNG">
             <br></br>
-            <img src="rustthreadsoutput.PNG"></a>
+            <img src="rustthreadsoutput.PNG">
 
             <h2>Complex Program</h2>
             <p>insert</p>
