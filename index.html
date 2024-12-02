@@ -22,6 +22,7 @@
         }
 
         p {
+            font-size: 120%;
             line-height: 1.6;
             margin: 10px 0;
             padding: 0 20px;
@@ -93,6 +94,21 @@
             color: #7f8c8d;
             margin-top: 40px;
         }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 40%;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -101,17 +117,37 @@
         
         <h2>Description</h2>
         <p>Rust is a modern, high-performance, systems programming language that focuses on maximizing program performance with strong type safety and concurrency features. Rust enforces memory safety like many other modern PL's, but does so without a "garbage collector", instead opting to use a "borrow checker" and an ownership model that tracks the lifetime of the memory object during compile time, making sure there are no null pointer dereferences, use-after-free bugs, and data races. For example, below is an example of the ownership model:</p>
-        <img src="rustownership.PNG">
+        <img src="rustownership.PNG" width="40%" height="auto" class="center" />
         <p>The output (notice how awesome the Rust debugger is): </p>
-        <img src="rustownershipoutput.PNG">
+        <img src="rustownershipoutput.PNG" width="75%" height="auto" class="center" />
         <p>Rust also does not have null values or pointers, instead featuring an "Option" module with "Some" value or "None":</p>
-        <img src="rustoption.PNG">
+        <img src="rustoption.PNG" width="40%" height="auto" class="center" />
         <p>Rust also features strong package managers, is safe and reliable, and has a modern, clean syntax that is easy to read and understand. Rust's syntax takes inspiration from multiple languages like C, Java, and Python.</p>
         <p>Rust handles errors with with a "Result" module that transforms functions to return an enum containing either Ok(x), resembling a good value, or Err(x), resembling an error:</p>
-        <img src="rusterrorhandle.PNG">
-        <p>Rust was influenced by ideas from functional programming, meaning that it supports object immutability, higher-order functions, and pattern matching. Rust also supports multiple object-oriented principles through structs, enums, and more. Rust is very popular for systems programming, like building computer system software and software platforms that provide services to other software, most commonly application software.</p>
+        <img src="rusterrorhandle.PNG" width="50%" height="auto" class="center" />
+        <p>Rust was influenced by ideas from functional programming, meaning that it supports object immutability, higher-order functions, and pattern matching.</p>
+        <div class="row">
+            <img src="rustimmutable.PNG" width="40%" height="auto" class="column" /><img src="rusthighorder.PNG" width="40%" height="auto" class="column" />
+        </div>
+        <p>Rust also supports multiple object-oriented principles, like encapsulation through structs and impl (implements), polymorphism and inheritance via traits, and more, even though Rust is not an object-oriented language.</p>
+        <p>Rust features a construct known as a "macro". Macros, in simple terms, are code that generates other code (metaprogramming). Macros, unlike functions, work at the syntax level before compilation. Because of this, code is generated during compile time, allowing errors to be caught during compilation, and creates no runtime overhead, allowing the program to run faster. Macros are also more flexible than functions since they can take a variable number of arguments (see println!), implement a trait on a type (similar to Java Intergaces), or use custom syntax. They are denoted by the exclamation mark after the macro's name and before the parantheses.</p>
+        <p>Rust is very popular for systems programming, like building computer system software, web servers, game engines, and other services that rely on performance-critical code. For example, here is an example of a speed comparison between multiple languages solving the same problem:</p>
+        <img src="languagecomparison.jpg" width="50%" height="auto" class="center">
         <h2>History</h2>
-        <p>Rust was developed by Graydon Hoare, a Mozilla employee, in 2006 as a personal project. In 2009, Mozilla officially sponsored Graydon's project and eventually released the first stable version of Rust in 2015.</p>
+        <p>Rust was developed by Graydon Hoare, a Mozilla employee, in 2006 as a personal project. His goal for this project was to design a systems programming language that avoided common errors found in C++, like segmentation faults and undefined behavior. In 2009, Mozilla officially sponsored Graydon's project. Mozilla's goal with the project was to create a language that would power the next generation of high-performance applications. After many years of development and testing, Mozilla released the first stable version of Rust in 2015.</p>
+        <p>Timeline:</p>
+        <ol>
+            <li>2010: Rust's ownership system was developed, although not fully completed since Rust still used a garbage collector.</li>
+            <li>2011: Rust's syntax and semantics were (pretty much) fully developed and tested, and the language's backend was switched to LLVM for compilation. LLVM is used by popular languages like C, C++, Swift, and Go.</li>
+            <li>2012: The first public non-stable release, Rust 0.1, was released in January.</li>
+            <li>2013: Rust's ownership model made major improvments, which led to the removal of the garbage collector.</li>
+            <li>2013: Rust removed pure functions (which where declared with "pure") and specialized syntax support for channels and various pointer types to simplify the language.</li>
+            <li>2013: Graydon Hoare stepped down from the Rust development team.</li>
+            <li>2015: Rust 1.0 officially launched as the first stable public release.</li>
+            <li>2016: Rust's real-world usage was demonstrated in the Servo project, Mozilla's experimental web browser.</li>
+            <li>2020: The "Rust for Linux" project began, whose goal is to add Rust as a programming language that can be used in the Linux kernel.</li>
+            <li>2023: The first drivers written in Rust were accepted by Linus Torvalds, leader of the Linux kernel project.</li>
+        </ol>
         <p>Rust is currently being rapidly adopted by a multitude of companies due to its strong performance and capabilities.</p>  
 
         <h2>Links</h2>
@@ -129,97 +165,24 @@
             <br></br>
 
             <h3>Hello World Function Call</h3>
-            <img src="rusthelloworld.PNG">
+            <img src="rusthelloworld.PNG" class="center">
             <br></br>
-            <img src="rusthelloworldoutput.PNG">
-            <pre>
-                <p>
-                    fn main() {
-                        print_hello_world();
-                    }
-                    
-                    fn print_hello_world() {
-                        println!("Hello, World!");
-                    }
-                </p>  
-            </pre>
+            <img src="rusthelloworldoutput.PNG" class="center" width="50%" height="auto">
 
             <h3>Iterate through a 2 dimensional array</h3>
-            <img src="rust2darray.PNG">
+            <img src="rust2darray.PNG" class="center" width="40%" height="auto">
             <br></br>
-            <img src="rust2darrayoutput.PNG">
-            <pre>
-                <P>
-                    fn main() {
-                        // Define a 2D array 
-                        let array = [
-                            [1, 2, 3],
-                            [4, 5, 6],
-                            [7, 8, 9],
-                        ];
-                    
-                        // Iterate through the rows
-                        for row in array.iter() {
-                            // Iterate through the elements of each row
-                            for &value in row.iter() {
-                                print!("{} ", value);
-                            }
-                            // Print a new line after each row
-                            println!();
-                        }
-                    }
-                </P>
-            </pre>
+            <img src="rust2darrayoutput.PNG" class="center" width="50%" height="auto">
             
             <h3>Fibonacci Sequence</h3>
-            <img src="rustfibonacci.PNG">
+            <img src="rustfibonacci.PNG" class="center" width="40%" height="auto">
             <br></br>
-            <img src="rustfibonaccioutput.PNG">
-            <pre>
-                <P>
-                fn main() {
-                    let n = 10; // The number of Fibonacci numbers to display
-                    println!("First {} Fibonacci numbers:", n);
-                    
-                    // Call the function to print Fibonacci numbers
-                    for i in 0..n {
-                        let fib = fibonacci(i);
-                        println!("Fib({}) = {}", i, fib);
-                    }
-                }
-                
-                // Function to calculate the nth Fibonacci number
-                fn fibonacci(n: u32) -> u32 {
-                    if n == 0 {
-                        return 0;
-                    } else if n == 1 {
-                        return 1;
-                    } else {
-                        return fibonacci(n - 1) + fibonacci(n - 2);
-                    }
-                }  
-                </P>
-            </pre>
-
-            <h5>Output:</h5>
-            <pre>
-                    First 10 Fibonacci numbers:
-                    Fib(0) = 0
-                    Fib(1) = 1
-                    Fib(2) = 1
-                    Fib(3) = 2
-                    Fib(4) = 3
-                    Fib(5) = 5
-                    Fib(6) = 8
-                    Fib(7) = 13
-                    Fib(8) = 21
-                    Fib(9) = 34
-            </pre>
+            <img src="rustfibonaccioutput.PNG" class="center" width="50%" height="auto">
             
             <h3>Threads in Rust</h3>
-            <img src="rustthreads.PNG">
+            <img src="rustthreads.PNG" class="center" width="50%" height="auto">
             <br></br>
-            <img src="rustthreadsoutput.PNG">
+            <img src="rustthreadsoutput.PNG" class="center" width="50%" height="auto">
 
             <h2>Complex Program</h2>
             <p>insert</p>
