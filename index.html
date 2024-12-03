@@ -160,7 +160,19 @@
 
         <div class="intro">
             <h2>Translators & Instructions</h2>
-            <p>insert</p>
+            <h3>rustc / cargo</h3>
+            <ol>
+                <li>Go to <a href="https://www.rust-lang.org/tools/install">rust-lang.org</a> and install rustup.</li>
+                <li>If you're on Windows or Mac, there's an .exe file to install.</li>
+                <li>If on Windows Sybsystem for Linux, run the following command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</li>
+                <li>If on Linux, run the following command in terminal: curl https://sh.rustup.rs -sSf | sh</li>
+                <li>Once everything is installed, to start a new package, run "cargo new" followed by a name for the package. This creates a working directory for you to work in.</li>
+                <li>If the cargo command does not work, run "sudo apt install build-essential". This is a C linker that is necessary for cargo.</li>
+                <li>Then, begin working on a rust program in the "src" directory.</li>
+                <li>Once done with your program, from the "src" directory, run "cargo build" to compile the project. If any errors show up, fix them.</li>
+                <li>Then, run "cargo run" to run the program.</li>
+            </ol>
+            <p></p>
 
             <h2>Introductory Programs</h2>
             <br></br>
@@ -189,92 +201,96 @@
             <a href="main.rs">Code for Complex Program</a>
 
             <h2>Comparison To Similar Languages</h2>
-            <table>
-                <tr>
-                    <th>Feature/Characteristic</th>
-                    <th>Rust</th>
-                    <th>Python</th>
-                    <th>Javascript</th>
-                    <th>C++</th>
-                </tr>
-                <tr>
-                    <td>Paradigms</td>
-                    <td>Systems, Functional, Procedural</td>
-                    <td>Object-Oriented, Functional, Procedural</td>
-                    <td>Event-driven, Functional, Imperative</td>
-                    <td>Object-Oriented, Procedural, Generic</td>
-                </tr>
-                <tr>
-                    <td>Use Cases</td>
-                    <td>Systems Programming, Performance Critical Software</td>
-                    <td>Scripting, Data Science, Web Development</td>
-                    <td>Server-side Scripting, Web Development</td>
-                    <td>Game Development, Performance Critical Applications</td>
-                </tr>
-                <tr>
-                    <td>Memory Management</td>
-                    <td>Ownership, No Garbage Collection</td>
-                    <td>Garbage Collection</td>
-                    <td>Garbage Collection</td>
-                    <td>Manual Management</td>
-                </tr>
-                <tr>
-                    <td>Type System</td>
-                    <td>Statically Typed</td>
-                    <td>Dynamically Typed</td>
-                    <td>Dynamically Typed</td>
-                    <td>Statically Typed</td>
-                </tr>
-                <tr>
-                    <td>Concurrency</td>
-                    <td>Ownership Model, Send/Sync Traits, Compile-Time Checks</td>
-                    <td>Limited due to Global Interpreter Lock</td>
-                    <td>Async/Await Model w/ Event Loop</td>
-                    <td>Threads, Async w/ Libraries</td>
-                </tr>
-                <tr>
-                    <td>Syntax Complexity</td>
-                    <td>Somewhat Complex/Strict</td>
-                    <td>Simple</td>
-                    <td>Simple</td>
-                    <td>High Complexity, Very Verbose</td>
-                </tr>
-                <tr>
-                    <td>Compiled or Interpreted</td>
-                    <td>Compiled</td>
-                    <td>Interpreted</td>
-                    <td>Interpreted</td>
-                    <td>Compiled</td>
-                </tr>
-                <tr>
-                    <td>Performance</td>
-                    <td>High</td>
-                    <td>Moderate</td>
-                    <td>Moderate</td>
-                    <td>High</td>
-                </tr>
-                <tr>
-                    <td>Learning Curve</td>
-                    <td>Steep for Beginners, Easier for Professionals</td>
-                    <td>Easy to learn</td>
-                    <td>Easy to learn</td>
-                    <td>Steep for Beginners, Easier for Professionals</td>
-                </tr>
-                <tr>
-                    <td>Platform Independence</td>
-                    <td>Cross-platform, Compiled to Machine Code</td>
-                    <td>Platform-independent using Python Runtime</td>
-                    <td>Platform-independent as it runs on Browsers</td>
-                    <td>Cross-platform, can change depending on compiler setup</td>
-                </tr>
-                <tr>
-                    <td>Unique Strengths</td>
-                    <td>Very Safe, High Performance</td>
-                    <td>High Readability, Huge Library Ecosystem</td>
-                    <td>Browser Integration, Highly Dynamic</td>
-                    <td>Strong Performance, Great for Complex Systems</td>
-                </tr>
-            </table>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Rust</th>
+                        <th>C</th>
+                        <th>C++</th>
+                        <th>Java</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paradigms</td>
+                        <td>Systems programming, functional, imperative</td>
+                        <td>Procedural, imperative</td>
+                        <td>Multi-paradigm: procedural, object-oriented, generic</td>
+                        <td>Object-oriented, some functional features</td>
+                    </tr>
+                    <tr>
+                        <td>Use Cases</td>
+                        <td>Systems programming, web servers, CLI tools, game engines, blockchain</td>
+                        <td>OS development, embedded systems, hardware programming</td>
+                        <td>Game engines, real-time systems, performance-critical applications</td>
+                        <td>Enterprise software, Android apps, web servers</td>
+                    </tr>
+                    <tr>
+                        <td>Memory Management</td>
+                        <td>Ownership with borrowing/lifetimes, no garbage collector</td>
+                        <td>Manual memory management</td>
+                        <td>Manual (pointers) and automatic (smart pointers in modern C++)</td>
+                        <td>Automatic garbage collection via JVM</td>
+                    </tr>
+                    <tr>
+                        <td>Type System</td>
+                        <td>Strong, static, expressive (generics, traits, lifetimes)</td>
+                        <td>Weak, static</td>
+                        <td>Strong, static (templates, polymorphism, inheritance)</td>
+                        <td>Strong, static (generics with type erasure)</td>
+                    </tr>
+                    <tr>
+                        <td>Concurrency</td>
+                        <td>Safe concurrency without data races, enforced at compile time</td>
+                        <td>Libraries like pthreads, prone to data races</td>
+                        <td>Libraries available, but thread safety depends on the programmer</td>
+                        <td>Built-in threading model, runtime safety with `synchronized`</td>
+                    </tr>
+                    <tr>
+                        <td>Syntax Complexity</td>
+                        <td>Modern, expressive, concise but strict</td>
+                        <td>Simple, minimal</td>
+                        <td>Complex due to advanced features like templates and manual memory management</td>
+                        <td>Simple but verbose, designed for readability</td>
+                    </tr>
+                    <tr>
+                        <td>Compiled or Interpreted</td>
+                        <td>Compiled to native machine code</td>
+                        <td>Compiled to native machine code</td>
+                        <td>Compiled to native machine code</td>
+                        <td>Compiled to bytecode and interpreted/compiled by JVM</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>High, comparable to C/C++, optimized with zero-cost abstractions</td>
+                        <td>High, close to the hardware</td>
+                        <td>High, close to C but can be slower due to abstraction overhead</td>
+                        <td>Slower than Rust/C/C++ due to JVM overhead</td>
+                    </tr>
+                    <tr>
+                        <td>Learning Curve</td>
+                        <td>Steep (ownership model, strict compiler rules)</td>
+                        <td>Moderate (simpler but requires understanding of manual memory management)</td>
+                        <td>Steep (complex syntax, templates, and object-oriented programming)</td>
+                        <td>Moderate (garbage collection and extensive documentation help beginners)</td>
+                    </tr>
+                    <tr>
+                        <td>Platform Independence</td>
+                        <td>Cross-compilation supported but output binaries are platform-specific</td>
+                        <td>Platform-specific binaries</td>
+                        <td>Cross-compilation supported but output binaries are platform-specific</td>
+                        <td>Fully portable; "write once, run anywhere" via JVM</td>
+                    </tr>
+                    <tr>
+                        <td>Unique Strengths</td>
+                        <td>Ownership for memory safety, zero-cost abstractions, fearless concurrency</td>
+                        <td>Simple and fast for low-level hardware programming</td>
+                        <td>Combines high-level abstraction with low-level control, wide community support</td>
+                        <td>Rich ecosystem for enterprise development, platform independence, automatic garbage collection</td>
+                    </tr>
+                </tbody>
+            </table>            
         </div>
 
         <div class="footer">
