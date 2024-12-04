@@ -9,6 +9,8 @@ enum Operation {
     Subtract,
     Multiply,
     Divide,
+    Exponent,
+    GCD,
 }
 
 /*
@@ -31,6 +33,8 @@ impl FromStr for Operation {
             "-" => Ok(Operation::Subtract),
             "*" => Ok(Operation::Multiply),
             "/" => Ok(Operation::Divide),
+            "^" => Ok(Operation::Exponent),
+            "gcd" => Ok(Operation::GCD),
             _ => Err(format!("Invalid operation: {}", input)), // Error
         }
     }
@@ -58,13 +62,37 @@ fn calculate(op: Operation, num1: f64, num2: f64) -> Result<f64, String> {
                     Ok(num1 / num2)
                 }
             }
+            Operation::Exponent => Ok(num1.powf(num2)),
+            Operation::GCD => {
+                if num1.fract() != 0.0 || num2.fract() != 0.0 {
+                    Err("GCD can only be calculated for integers".to_string())
+                } else {
+                    let a = num1 as u64;
+                    let b = num2 as u64;
+                    Ok(gcd(a, b) as f64)
+                }
+            }
         }
 }
+
+
+/*
+*  Function to calculate the greatest common divisor of two integers
+*/
+fn gcd(mut a: u64, mut b: u64) -> u64 {
+    while b != 0 {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    a
+}
+
 
 fn main() {
     println!("Hello! This is a very basic calculator implemented in Rust.");
     println!("This calculator accepts integers and floats.");
-    println!("Currently supported operations: + - * /");
+    println!("Currently supported operations: + - * / ^ gcd");
     
     // Enter calculator loop
     loop {
@@ -87,7 +115,7 @@ fn main() {
         };
 
         // Retrieve operation symbol
-        println!("Enter the operation (+ - * /):");
+        println!("Enter the operation (+ - * / ^ gcd):");
         let mut op_inp = String::new(); // Variable for operation input
         // Read user input, storing in op_inp, and throwing error if program fails
         io::stdin().read_line(&mut op_inp).expect("Failed to read/process input.");
