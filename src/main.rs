@@ -3,6 +3,7 @@ use std::io;
 use std::str::FromStr;
 
 // Rust enum for storing calculator operations
+#[derive(PartialEq)]
 #[derive(Debug)] // Rust macro for debug operation https://doc.rust-lang.org/std/fmt/trait.Debug.html
 enum Operation {
     Add,
@@ -11,6 +12,8 @@ enum Operation {
     Divide,
     Exponent,
     GCD,
+    Modulo,
+    Sqrt,
 }
 
 /*
@@ -35,6 +38,8 @@ impl FromStr for Operation {
             "/" => Ok(Operation::Divide),
             "^" => Ok(Operation::Exponent),
             "gcd" => Ok(Operation::GCD),
+            "%" => Ok(Operation::Modulo),
+            "sqrt" => Ok(Operation::Sqrt),
             _ => Err(format!("Invalid operation: {}", input)), // Error
         }
     }
@@ -72,7 +77,23 @@ fn calculate(op: Operation, num1: f64, num2: f64) -> Result<f64, String> {
                     Ok(gcd(a, b) as f64)
                 }
             }
+            Operation::Modulo => {
+                if num2 == 0.0 {
+                    Err("Cannot divide by zero".to_string())
+                } else {
+                    Ok(num1 % num2)
+                }
+            },
+            Operation::Sqrt => Err("Square root operation should be handled separately.".to_string()),
         }
+}
+
+fn square_root(num1: f64) -> Result<f64, String> {
+    if num1 < 0.0 {
+        Err("Cannot take the square root of a negative number".to_string())
+    } else {
+        Ok(num1.sqrt())
+    }
 }
 
 
@@ -115,7 +136,7 @@ fn main() {
         };
 
         // Retrieve operation symbol
-        println!("Enter the operation (+ - * / ^ gcd):");
+        println!("Enter the operation (+ - * / ^ gcd % sqrt):");
         let mut op_inp = String::new(); // Variable for operation input
         // Read user input, storing in op_inp, and throwing error if program fails
         io::stdin().read_line(&mut op_inp).expect("Failed to read/process input.");
@@ -130,26 +151,35 @@ fn main() {
             }
         };
 
-        // Retrieve second number
-        println!("Enter the second number:");
-        let mut inp2 = String::new(); // Variable for second number
-        // Read user input, storing in inp2, and throwing error if program fails
-        io::stdin().read_line(&mut inp2).expect("Failed to read/process input.");
-        if op_inp.trim().eq_ignore_ascii_case("exit") { // Exit program
-            break;
-        }
-        let num2 = match inp2.trim().parse() { // Process the input number
-            Ok(n) => n,
-            Err(_) => {
-                println!("{} is invalid. Try again.", inp2.trim());
-                continue;
+        if operation == Operation::Sqrt {
+            match square_root(num1) {
+                Ok(result) => println!("Result: {}", result),
+                Err(e) => println!("Error: {}", e),
             }
-        };
+            continue; // Skip the rest of the loop for Sqrt
+        }
+        else {
+            // Retrieve second number
+            println!("Enter the second number:");
+            let mut inp2 = String::new(); // Variable for second number
+            // Read user input, storing in inp2, and throwing error if program fails
+            io::stdin().read_line(&mut inp2).expect("Failed to read/process input.");
+            if op_inp.trim().eq_ignore_ascii_case("exit") { // Exit program
+                break;
+            }
+            let num2 = match inp2.trim().parse() { // Process the input number
+                Ok(n) => n,
+                Err(_) => {
+                    println!("{} is invalid. Try again.", inp2.trim());
+                    continue;
+                }
+            };
 
-        // Perform calculation
-        match calculate(operation, num1, num2) {
-            Ok(result) => println!("Result: {}", result),
-            Err(e) => println!("Error: {}", e),
+            // Perform calculation
+            match calculate(operation, num1, num2) {
+                Ok(result) => println!("Result: {}", result),
+                Err(e) => println!("Error: {}", e),
+            }
         }
 
         println!("------------------------");
