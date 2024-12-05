@@ -113,7 +113,7 @@ fn gcd(mut a: u64, mut b: u64) -> u64 {
 fn main() {
     println!("Hello! This is a very basic calculator implemented in Rust.");
     println!("This calculator accepts integers and floats.");
-    println!("Currently supported operations: + - * / ^ gcd");
+    println!("Currently supported operations: + - * / ^ gcd % sqrt");
     
     // Enter calculator loop
     loop {
